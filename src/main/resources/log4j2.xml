@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration monitorInterval="30" >
+	<properties>
+		<!-- 日志路径 /data1/logs/app/tomcat/resume_gateway/${sys:log4jport} -->
+		<property name="LOG_PATH">/data1/logs/app/tomcat/logAlarm_scheduled</property>
+		<!-- 日志文件名字前缀 -->
+		<property name="LOG_NAME_PRE">log-alarm-scheduled</property>
+		<!-- 当前实例运行端口号 -->
+		<property name="LOG_PORT">${sys:log4jport}</property>
+	</properties>
+
+	<!--先定义所有的appender-->
+	<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+	<appenders>
+		<!--这个输出控制台的配置-->
+		<console name="console" target="SYSTEM_OUT">
+			<!--输出日志的格式-->
+			<PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] [%t] [%c{1}:%L] %m%n"/>
+		</console>
+	</appenders>
+	<!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
+	<loggers>
+		<root level="info">
+			<appender-ref ref="console"/>
+		</root>
+
+	</loggers>
+</configuration>
