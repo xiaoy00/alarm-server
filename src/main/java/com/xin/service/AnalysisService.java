@@ -109,7 +109,7 @@ public class AnalysisService {
 
         logger.info("发送微信消息:"+config.getSendLabel()+":"+config.getReceiver());
         HttpClient httpClient = new HttpClient();
-        PostMethod post = new PostMethod("http://notice.youxinpai.com/weixin/pushMessage");
+        PostMethod post = new PostMethod("就一个地址");
         try {
             RequestEntity entity = new StringRequestEntity(JSON.toJSONString(params), "application/json; encoding=utf-8", "utf-8");
             post.setRequestEntity(entity);
